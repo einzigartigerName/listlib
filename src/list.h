@@ -19,4 +19,3 @@ int                     list_remove (list_t *list, struct list_elem *elem);
 void                    list_finit (list_t *list);
 void                    list_print (list_t *list, void (*print_elem) (void *));
 struct list_elem        *list_find (list_t *list, void *data, int (*cmp_elem) (const void *, const void *));
-void*                   list_remove_first(list_t *li);

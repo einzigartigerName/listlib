@@ -58,7 +58,22 @@ struct list_elem *list_append (list_t *list, void *data){
     return app;
 }
 
-int                     list_remove (list_t *list, struct list_elem *elem){}
+struct list_elem *list_find (list_t *list, void *data, int (*cmp_elem) (const void *, const void *)){
+    struct list_elem *current = list->first;
+
+    while(current != NULL){
+        if(cmp_elem(current->data, data) == 0)
+            return current;
+
+        current = current->next;
+    }
+
+    return NULL;
+}
+
+int list_remove (list_t *list, struct list_elem *elem){
+    
+}
 
 void list_print (list_t *list, void (*print_elem) (void *)){
     struct list_elem *current = list->first;
@@ -67,11 +82,6 @@ void list_print (list_t *list, void (*print_elem) (void *)){
         current = current->next;
     }
 }
-
-struct list_elem        *list_find (list_t *list, void *data, int (*cmp_elem) (const void *, const void *)){}
-
-void*                   list_remove_first(list_t *li);
-
 
 void list_finit (list_t *list){
     if(list->first == NULL){
