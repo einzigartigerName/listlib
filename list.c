@@ -71,8 +71,35 @@ struct list_elem *list_find (list_t *list, void *data, int (*cmp_elem) (const vo
     return NULL;
 }
 
+
+/*
+* @param list_t
+* @param list_elem
+* @return int: success -> 0; failure -> -1
+*/
 int list_remove (list_t *list, struct list_elem *elem){
-    
+    if (list->first == NULL || elem == NULL)
+        return -1;
+
+    struct list_elem *current = list->first;
+
+    // check first element
+    if(current == elem){
+        list->first = current->next;
+        free(elem);
+        return 0;
+    }
+    // Check in rest of list
+    while(current->next != NULL){
+        if(current->next == elem){
+            current->next = elem->next;
+            free(elem);
+            return 0;
+        }
+        current = current->next;
+    }
+
+    return -1;
 }
 
 void list_print (list_t *list, void (*print_elem) (void *)){
