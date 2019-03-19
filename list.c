@@ -123,6 +123,26 @@ int list_remove (list_t *list, struct list_elem *elem){
 
     return -1;
 }
+/*
+* @param list_t* - list
+*/
+void list_rev(list_t *list){
+    // zero or One Element
+    if (list->first == NULL || list->first == list->last)
+        return;
+
+    struct list_elem *current = list->first;
+    struct list_elem *prev = NULL;
+    struct list_elem *next = NULL;
+
+    while(current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    list->first = prev;
+}
 
 /*
 * @param list_t* - list
