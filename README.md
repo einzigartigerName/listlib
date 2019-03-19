@@ -17,6 +17,7 @@ Now you can use the provided function in your project:
 * `list_insert`: inserts data to list - returns pointer to added element
 * `list_append`: appends data to list - returns pointer to added element
 * `list_remove`: removes element via element-pointer - returns `0` if succeded, `-1` if failed
-* `list_find`: finds element with specific data - returns pointer to element ('NULL' if not exits)
+* `list_find`: finds element with specific data - returns pointer to element (`NULL` if not exits)
+* `list_rev`: reverses the given list
 * `list_print`: prints list
 * `list_finit`: deletes list
