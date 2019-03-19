@@ -107,6 +107,7 @@ int list_remove (list_t *list, struct list_elem *elem){
     if(current == elem){
         list->first = current->next;
         free(elem);
+        list->size -= 1;
         return 0;
     }
     // Check in rest of list
@@ -114,6 +115,7 @@ int list_remove (list_t *list, struct list_elem *elem){
         if(current->next == elem){
             current->next = elem->next;
             free(elem);
+            list->size -= 1;
             return 0;
         }
         current = current->next;
