@@ -13,11 +13,16 @@ Place `list.h` and `list.c` in your project and include `list.h`
 .
 ```
 Now you can use the provided function in your project:
-* `list_init`: creates an empty list - returns pointer to list
-* `list_insert`: inserts data to list - returns pointer to added element
-* `list_append`: appends data to list - returns pointer to added element
-* `list_remove`: removes element via element-pointer - returns `0` if succeded, `-1` if failed
-* `list_find`: finds element with specific data - returns pointer to element (`NULL` if not exits)
-* `list_rev`: reverses the given list
-* `list_print`: prints list
-* `list_finit`: deletes list
+* `linit`: creates an empty list - returns pointer to list
+* `linsert`: inserts data to list - returns pointer to added element
+* `lappend`: appends data to list - returns pointer to added element
+* `lrm`: removes element via element-pointer - returns `0` if succeded, `-1` if failed
+* `lrmf`: removes first element in list (throws error if list is empty)
+* `lrml`: removes last element in list (throws error if list is empty)
+* `lfind`: finds element with specific data - returns pointer to element (`NULL` if not exits)
+* `lrev`: reverses the given list
+* `lprint`: prints list
+* `lfinit`: deletes list
+
+### Known flaws
+Make sure your saved data was initialized via `malloc`, otherwise it will come to `invalid pointer`-errors within `lrm`, `lrmf`, `lrml` and `lfinit`.
