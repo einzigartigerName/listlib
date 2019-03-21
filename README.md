@@ -16,6 +16,8 @@ Now you can use the provided function in your project:
 * `linit`: creates an empty list - returns pointer to list
 * `linsert`: inserts data to list - returns pointer to added element
 * `lappend`: appends data to list - returns pointer to added element
+* `lget`: returns element by index
+* `lput`: replaces data in element by index (frees old data)
 * `lrm`: removes element via element-pointer - returns `0` if succeded, `-1` if failed
 * `lrmf`: removes first element in list (throws error if list is empty)
 * `lrml`: removes last element in list (throws error if list is empty)

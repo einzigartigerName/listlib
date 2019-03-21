@@ -106,16 +106,21 @@ void lput(list_t *list, size_t index, void *data){
     if (index > list->size - 1)
         ERROR("Index out of Bounds!");
 
-    if(index == 0)
+    if(index == 0){
+        free(list->first->data);
         list->first->data = data;
+    }
 
-    if(index == list->size - 1)
-        list->last->data = data;
+    if(index == list->size - 1){
+        free(list->last->data);
+        list->last->data = data;        
+    }
 
     struct list_elem *current = list->first;
     for(size_t i = 0; i < index; i++)
         current = current->next;
-
+    
+    free(current->data);
     current->data = data;
 }
 
