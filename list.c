@@ -300,6 +300,9 @@ void lprint (list_t *list, void (*print_elem) (void *)){
 * @param list_t* - list
 */
 void lfinit (list_t *list){
+    if(list == NULL)
+        return;
+
     if(list->first == NULL){
         free(list);
         return;
