@@ -15,6 +15,7 @@ typedef struct list {
 list_t                  *linit ();
 struct list_elem        *linsert (list_t *list, void *data);
 struct list_elem        *lappend (list_t *list, void *data);
+void                    lconcat(list_t* dest, list_t *list);
 struct list_elem        *lget(list_t *list, size_t index);
 void                    lput(list_t *list, size_t index, void *data);
 int                     lrm (list_t *list, struct list_elem *elem);

@@ -79,6 +79,22 @@ struct list_elem *lappend (list_t *list, void *data){
     return app;
 }
 
+/*
+* @param list_t* - destination
+* @param list_t* - list to append to destination
+*/
+void lconcat(list_t *dest, list_t *list){
+    if(dest == NULL){
+        dest = list;
+        return;
+    }
+
+    if(list == NULL)
+        return;
+
+    dest->last->next = list->first;
+}
+
 
 /*
 * @param list_t* -list
