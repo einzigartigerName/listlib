@@ -98,6 +98,27 @@ void lconcat(list_t *dest, list_t *list){
 
 
 /*
+* @param list_t* - list to be copied
+* @param cpy_data - method that handles data copy
+* @return list_t* - copy of list
+*/
+list_t *lcpy(list_t *list, cpy_data cpy){
+    if(list == NULL)
+        return NULL;
+
+    list_t *list_cpy = linit();
+    struct list_elem *current = list->first;
+    while(current != NULL){
+        void *cpydata = cpy(current->data);
+        lappend(list_cpy, cpydata);
+        current = current->next;
+    }
+
+    return list_cpy;
+}
+
+
+/*
 * @param list_t* -list
 * @param size_t - index
 * @return struct list_elem - found element
@@ -157,17 +178,17 @@ void lput(list_t *list, size_t index, void *data){
 /*
 * @param list_t* - list
 * @param void* - data to find
-* @param int (*cmp_elem) - methode to compare the data
+* @param cmp_elem - methode to compare the data
 * @return struct list_elem* - found list-element (NULL if no matching element was found)
 */
-struct list_elem *lfind (list_t *list, void *data, int (*cmp_elem) (const void *, const void *)){
+struct list_elem *lfind (list_t *list, void *data, cmp_elem cmp){
     if(list == NULL)
         return NULL;
 
     struct list_elem *current = list->first;
 
     while(current != NULL){
-        if(cmp_elem(current->data, data) == 0)
+        if(cmp(current->data, data) == 0)
             return current;
 
         current = current->next;
@@ -329,15 +350,15 @@ void lrev(list_t *list){
 
 /*
 * @param list_t* - list
-* @param void (*print_elem) - methode to print data in list
+* @param print_elem - methode to print data in list
 */
-void lprint (list_t *list, void (*print_elem) (void *)){
+void lprint (list_t *list, print_elem print){
     if(list == NULL)
         return;
 
     struct list_elem *current = list->first;
     while(current != NULL){
-        print_elem(current->data);
+        print(current->data);
         current = current->next;
     }
 }
