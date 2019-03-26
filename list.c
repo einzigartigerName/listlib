@@ -93,6 +93,7 @@ void lconcat(list_t *dest, list_t *list){
         return;
 
     dest->last->next = list->first;
+    dest->size += list->size;
 }
 
 
