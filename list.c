@@ -22,6 +22,25 @@ list_t *linit (){
 
 /*
 * @param list_t* - list
+* @return int - length of list
+*/
+int llen(list_t *list){
+    if(list == NULL)
+        return -1;
+    
+    int out;
+    struct list_elem *current = list->first;
+    while(current != NULL){
+        out++;
+        current = current->next;
+    }
+
+    return out;
+}
+
+
+/*
+* @param list_t* - list
 * @param void* - data to insert
 * @return struct list_elem* - inserted list-element
 */
