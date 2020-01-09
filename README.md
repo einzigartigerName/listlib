@@ -14,7 +14,6 @@ Place `list.h` and `list.c` in your project and include `list.h`
 ```
 Now you can use the provided function in your project:
 * `linit`: creates an empty list - returns pointer to list
-* `llen` : returns length of list (-1 if list is empty)
 * `linsert`: inserts data to list - returns pointer to added element
 * `lappend`: appends data to list - returns pointer to added element
 * `lconcat`: appends list two to list one

@@ -17,7 +17,6 @@ typedef int     (*cmp_elem)     (const void*, const void*);
 
 /* function prototypes */
 list_t                  *linit ();
-int                     llen(list_t *list);
 struct list_elem        *linsert (list_t *list, void *data);
 struct list_elem        *lappend (list_t *list, void *data);
 void                    lconcat(list_t* dest, list_t *list);

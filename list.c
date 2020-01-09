@@ -22,25 +22,6 @@ list_t *linit (){
 
 /*
 * @param list_t* - list
-* @return int - length of list
-*/
-int llen(list_t *list){
-    if(list == NULL)
-        return -1;
-    
-    int out = 0;
-    struct list_elem *current = list->first;
-    while(current != NULL){
-        out++;
-        current = current->next;
-    }
-
-    return out;
-}
-
-
-/*
-* @param list_t* - list
 * @param void* - data to insert
 * @return struct list_elem* - inserted list-element
 */
@@ -380,28 +361,6 @@ void lprint (list_t *list, print_elem print){
         print(current->data);
         current = current->next;
     }
-}
-
-
-/*
-* @param list_t* - list
-*/
-void *ltoa(list_t *list){
-    int len = llen(list);
-    if(len == -1){
-        printf("ERROR: list empty\n");
-        return NULL;
-    }
-
-    void *array[len];
-
-    struct list_elem *current = list->first;
-    for(int i = 0; i < len; i++){
-        array[i] = current->data;
-        current = current->next;
-    }
-
-    return *array;
 }
 
 
