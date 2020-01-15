@@ -366,8 +366,9 @@ void lprint (list_t *list, print_elem print){
 
 /*
 * @param list_t* - list
+* @param int - free data or not
 */
-void lfinit (list_t *list){
+void lfinit (list_t *list, int fdata){
     if(list == NULL)
         return;
 
@@ -380,11 +381,16 @@ void lfinit (list_t *list){
     while (list->first != list->last) {
         current = list->first;
         list->first = current->next;
-        free(current->data);
+
+        if(fdata)
+            free(current->data);
+
         free(current);
     }
 
-    free(list->first->data);
+    if(fdata)
+        free(list->first->data);
+
     free(list->first);
     free(list);
 }

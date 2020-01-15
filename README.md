@@ -25,7 +25,7 @@ Now you can use the provided function in your project:
 * `lfind`: finds element with specific data - returns pointer to element (`NULL` if not exits)
 * `lrev`: reverses the given list
 * `lprint`: prints list
-* `lfinit`: deletes list
+* `lfinit`: deletes list (choose if data should also be freed)
 
 ### Known flaws
 Make sure your saved data was initialized via `malloc`, otherwise it will come to `invalid pointer`-errors within `lrm`, `lrmf`, `lrml` and `lfinit`.
