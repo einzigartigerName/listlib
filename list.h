@@ -29,4 +29,5 @@ void                    lrml        (list_t *list);
 struct list_elem        *lfind      (list_t *list, void *data, cmp_elem cmp);
 void                    lprint      (list_t *list, print_elem print);
 void                    lrev        (list_t *list);
+void                    ltoa        (list_t *list, void *arr[]);
 void                    lfinit      (list_t *list, int fdata);

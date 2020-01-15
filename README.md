@@ -25,6 +25,7 @@ Now you can use the provided function in your project:
 * `lfind`: finds element with specific data - returns pointer to element (`NULL` if not exits)
 * `lrev`: reverses the given list
 * `lprint`: prints list
+* `ltoa` : list to array
 * `lfinit`: deletes list (choose if data should also be freed)
 
 ### Known flaws

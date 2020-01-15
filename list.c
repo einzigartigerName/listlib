@@ -365,6 +365,29 @@ void lprint (list_t *list, print_elem print){
 
 
 /*
+* @param list_t * - list
+* @param void ** - array for pointers to be stored
+*/
+void ltoa(list_t *list, void *array[]){
+    if(list == NULL){
+        printf("ERROR: list is NULL\n");
+        return;
+    }
+
+    if(array == NULL){
+        printf("ERROR: array is NULL\n");
+        return;
+    }
+
+    struct list_elem *current = list->first;
+    for(int i = 0; i < list->size; i++){
+        array[i] = current->data;
+        current = current->next;
+    }
+}
+
+
+/*
 * @param list_t* - list
 * @param int - free data or not
 */
