@@ -380,7 +380,7 @@ void ltoa(list_t *list, void *array[]){
     }
 
     struct list_elem *current = list->first;
-    for(int i = 0; i < list->size; i++){
+    for(size_t i = 0; i < list->size; i++){
         array[i] = current->data;
         current = current->next;
     }
